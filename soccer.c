@@ -9,7 +9,12 @@ create_record(int year, int day, int type, char * label)
 
   stats s;
 
-  s = malloc();
+  s = malloc(sizeof(struct sta));
 
-  return NULL;
+  s->year = year;
+  s->day  = day;
+  s->type = type;
+  s->label = label;
+
+  return s;
 }

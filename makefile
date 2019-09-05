@@ -3,11 +3,14 @@ LIB = libfdr/lib
 
 CC = gcc
 
-hello.o: hello.c
+hello.o: hello.c soccer.c soccer.h
 	$(CC) -c hello.c -I$(INC)
 
-hello: hello.o
-	$(CC) -o hello hello.o -L$(LIB) -lfdr
+soccer.o: soccer.c soccer.h
+	$(CC) -c soccer.c -I$(INC)
+
+hello: hello.o soccer.o
+	$(CC) -o hello hello.o soccer.o -L$(LIB) -lfdr
 
 all: hello
 
